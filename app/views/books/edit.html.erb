@@ -1,0 +1,26 @@
+<div class="containar">
+
+	<div class ="row">
+		<div class="col-md-6 col-md-offset-3">
+
+			<% if @book.errors.any? %>
+			  <div id="error_explanation" class="alert alert-danger">
+			    <ul>
+			      <% @book.errors.full_messages.each do |message| %>
+			        <li><%= message %></li>
+			      <% end %>
+			    </ul>
+			  </div>
+			<% end %>
+			<h1>Editing Book</h1>
+			<%= form_for(@book)do |f| %>
+			    <h4>Title</h4>
+			    <%= f.text_field :title,class:"col-xs-12" %>
+			    <h4>Opinion</h4>
+			    <%= f.text_area :body ,class:"col-xs-12"%>
+			    <%= f.submit 'Update Book',class:"col-xs-12 btn btn-primary"%> 
+			    <% end %>
+		</div>
+		<div class="col-md-3"></div>
+	</div>
+</div>

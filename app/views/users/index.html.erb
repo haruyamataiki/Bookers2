@@ -1,0 +1,27 @@
+  <div class="containar">
+    <div class="row">
+      <div class="col-lg-3">
+        <%= render 'books/list', user: @user %>
+        <%= render 'books/post', bookn:@bookn%>
+      </div>
+      <div class="col-lg-9">
+          <h2>Users</h2>
+          <table class="table table-hover">
+            <tbody>
+			  <tr>
+				<th>image</th>
+				<th>name</th>
+				<th colspan="3"></th>
+			  </tr>
+            <% @users.each do |user| %>
+              <tr>
+                <td><%= attachment_image_tag user, :profile_image, :fill, 60, 60, format: 'jpeg', fallback: "no2_image.jpg" %></td>
+                <td><%=user.name%></td>
+                <td><%=link_to"show",user_path(user.id)%></td>
+              </tr>
+             <% end %>
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </div>
